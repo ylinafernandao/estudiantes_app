@@ -31,6 +31,30 @@ $estudianteController = new EstudianteController();
                     <th>Eliminar</th>
                 </tr>
             </thead>
+            <tbody>
+                <?php
+                $estudientes = $estudianteController->list();
+                if(count($estudientes)>0){
+                    foreach($estudientes as $estudiente){
+                        echo '<tr>';
+                        echo ' <td>' . $estudiente->get('codigo') . '</td>';
+                        echo ' <td>' . $estudiente->get('nombres') . ' ' . $estudiente->get('apellidos') . '</td>';
+                        echo ' <td>' . $estudiente->get('edad') . '</td>';
+                        echo ' <td>';
+                        echo '   <a href="form_estudiantes.php?idE=' . $estudiente->get('id') . '">Modificar</a>';
+                        echo ' </td>';
+                        echo ' <td>';
+                        echo '   <a href="eliminar.php?idE=' . $estudiente->get('id') . '">Eliminar</a>';
+                        echo ' </td>';
+                        echo '</tr>';
+                    }
+                }else{
+                    echo '<tr>';
+                    echo ' <td colspan="3">No hay registros</td>';
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
         </table>
     </body>
 </html>
