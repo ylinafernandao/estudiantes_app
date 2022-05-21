@@ -4,7 +4,7 @@ namespace db;
 
 use mysqli;
 
-class ConexionDB
+class ConexionDBM
 {
     private $servidorDB = "localhost:3306";
     private $nombreDB = "materias_db";
