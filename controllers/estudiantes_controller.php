@@ -19,7 +19,7 @@ class EstudianteController implements IController
                 $estudiante = new Estudiante();
                 $estudiante->set('id', $row['id']);
                 $estudiante->set('codigo', $row['codigo']);
-                $estudiante->set('nombres', $row['nombres']);
+                $estudiante->set('nombres', $row['nombre']);
                 $estudiante->set('apellidos', $row['apellidos']);
                 $estudiante->set('edad', $row['edad']);
 
@@ -53,11 +53,15 @@ class EstudianteController implements IController
 
     public function create($estudianteModel)
     {
-        $sql = "insert into estudiantes (codigo, nombres, apellidos, edad)";
-        $sql = "values ('" . $estudianteModel->get('codigo') . "', 
+        $sql = "insert into estudiantes (codigo, nombre, apellidos, edad)";
+        $sql .= "values ('" . $estudianteModel->get('codigo') . "', 
         '" . $estudianteModel->get('nombres') . "',
         '" . $estudianteModel->get('apellidos') . "',
         " . $estudianteModel->get('edad') . " )";
+
+        echo '<br>';
+        echo $sql;
+        echo '<br>';
 
         $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
