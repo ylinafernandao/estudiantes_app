@@ -42,7 +42,7 @@ class EstudianteController implements IController
                 $estudiante = new Estudiante();
                 $estudiante->set('id', $row['id']);
                 $estudiante->set('codigo', $row['codigo']);
-                $estudiante->set('nombres', $row['nombres']);
+                $estudiante->set('nombres', $row['nombre']);
                 $estudiante->set('apellidos', $row['apellidos']);
                 $estudiante->set('edad', $row['edad']);
             }
@@ -59,9 +59,7 @@ class EstudianteController implements IController
         '" . $estudianteModel->get('apellidos') . "',
         " . $estudianteModel->get('edad') . " )";
 
-        echo '<br>';
-        echo $sql;
-        echo '<br>';
+        
 
         $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
