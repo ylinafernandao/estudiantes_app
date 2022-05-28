@@ -2,7 +2,7 @@
 namespace controllers;
 
 use controllers\MController;
-use db\ConexionDBM;
+use db\ConexionDB;
 use models\Materia;
 
 class MateriaController implements MController
@@ -10,7 +10,7 @@ class MateriaController implements MController
     public function list()
     {
         $sql = "select * from materias";
-        $conexionDB = new ConexionDBM();
+        $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
         $materias = [];
 
@@ -31,7 +31,7 @@ class MateriaController implements MController
     public function detail($id)
     {
         $sql = "SELECT * FROM materias WHERE id=" .$id;
-        $conexionDB = new ConexionDBM();
+        $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
         $materia = null;
 
@@ -53,7 +53,7 @@ class MateriaController implements MController
         $sql = "values ('" . $materiaModel->get('codigo') . "', 
         '" . $materiaModel->get('nombre') . " )";
 
-        $conexionDB = new ConexionDBM();
+        $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
         $conexionDB->close();
         return $resultQuery;  
@@ -65,7 +65,7 @@ class MateriaController implements MController
         $sql .= " codigo='" . $materiaModel->get('codigo') . "',";
         $sql .= " nombre='" . $materiaModel->get('nombre') . "'";
         $sql .= "where id=" . $id;
-        $conexionDB = new ConexionDBM();
+        $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
         $conexionDB->close();
         return $resultQuery;
@@ -74,7 +74,7 @@ class MateriaController implements MController
     public function delete($id)
     {
         $sql = "delete from materias where id=" . $id;
-        $conexionDB = new ConexionDBM();
+        $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
         $conexionDB->close();
         return $resultQuery;
