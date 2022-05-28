@@ -1,7 +1,7 @@
 <?php
-require_once dirname(__DIR__) . '/estudiantes_app/db/conexionM_db.php';
+require_once dirname(__DIR__) . '/estudiantes_app/db/conexion_db.php';
 require_once dirname(__DIR__) . '/estudiantes_app/controllers/m_controller.php';
-require_once dirname(__DIR__) . '/estudiantes_app/models/materia.php';
+require_once dirname(__DIR__) . '/estudiantes_app/models/materias.php';
 require_once dirname(__DIR__) . '/estudiantes_app/controllers/materias_controller.php';
 
 use controllers\MateriaController;
@@ -13,7 +13,7 @@ $materiaController = new MateriaController();
 
     <head>
         <meta charset="UTF-8">
-        <title>Estudiantes</title>
+        <title>Materias</title>
     </head>
 
     <body>
@@ -32,15 +32,15 @@ $materiaController = new MateriaController();
                 <?php
                 $materias = $materiaController->list();
                 if(count($materias)>0){
-                    foreach($materias as $materias){
+                    foreach($materias as $materia){
                         echo '<tr>';
-                        echo ' <td>' . $materias->get('codigo') . '</td>';
-                        echo ' <td>' . $materias->get('nombre') . '</td>';
+                        echo ' <td>' . $materia->get('codigo') . '</td>';
+                        echo ' <td>' . $materia->get('nombre') . '</td>';
                         echo ' <td>';
-                        echo '   <a href="form_materias.php?idE=' . $materias->get('id') . '">Modificar</a>';
+                        echo '   <a href="form_materias.php?idE=' . $materia->get('id') . '">Modificar</a>';
                         echo ' </td>';
                         echo ' <td>';
-                        echo '   <a href="eliminarM.php?idE=' . $materias->get('id') . '">Eliminar</a>';
+                        echo '   <a href="eliminarM.php?idE=' . $materia->get('id') . '">Eliminar</a>';
                         echo ' </td>';
                         echo '</tr>';
                     }
@@ -52,5 +52,11 @@ $materiaController = new MateriaController();
                 ?>
             </tbody>
         </table>
+
+        <br><br>
+        <form>
+        <a href="index.php"><input type="button" value="Regresar al listado de estudiantes"></a>
+        </form>
+
     </body>
 </html>

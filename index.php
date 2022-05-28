@@ -57,5 +57,11 @@ $estudianteController = new EstudianteController();
                 ?>
             </tbody>
         </table>
+
+        <br><br>
+        <form>
+        <a href="indexM.php"><input type="button" value="Ir al listado de Materias"></a>
+        </form>
+
     </body>
 </html>

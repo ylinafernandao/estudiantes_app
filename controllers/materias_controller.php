@@ -19,7 +19,7 @@ class MateriaController implements MController
                 $materia = new Materia();
                 $materia->set('id', $row['id']);
                 $materia->set('codigo', $row['codigo']);
-                $materia->set('nombres', $row['nombre']);
+                $materia->set('nombre', $row['nombre']);
 
                 array_push($materias, $materia);
             }
