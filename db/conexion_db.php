@@ -20,6 +20,7 @@ class ConexionDB
 
     public function getResultQuery($sql)
     {
+        echo $sql;
         return $this->conn->query($sql);
     }
     

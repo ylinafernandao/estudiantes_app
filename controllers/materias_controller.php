@@ -50,8 +50,8 @@ class MateriaController implements MController
     public function create($materiaModel)
     {
         $sql = "insert into materias (codigo, nombre)";
-        $sql = "values ('" . $materiaModel->get('codigo') . "', 
-        '" . $materiaModel->get('nombre') . " )";
+        $sql .= "values ('" . $materiaModel->get('codigo') . "', 
+        '" . $materiaModel->get('nombre') . "' )";
 
         $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);

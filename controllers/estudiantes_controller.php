@@ -71,10 +71,10 @@ class EstudianteController implements IController
     {
         $sql = "update estudiantes set ";
         $sql .= " codigo='" . $estudianteModel->get('codigo') . "',";
-        $sql .= " nombres='" . $estudianteModel->get('nombres') . "',";
+        $sql .= " nombre='" . $estudianteModel->get('nombres') . "',";
         $sql .= " apellidos='" . $estudianteModel->get('apellidos') . "',";
         $sql .= " edad=" . $estudianteModel->get('edad');
-        $sql .= "where id=" . $id;
+        $sql .= " where id=" . $id;
         $conexionDB = new ConexionDB();
         $resultQuery = $conexionDB->getResultQuery($sql);
         $conexionDB->close();
